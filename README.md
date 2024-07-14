@@ -1,0 +1,1 @@
+![CI](https://github.com/dmitrien/testinf_js/actions/workflows/web.yml/badge.svg)
