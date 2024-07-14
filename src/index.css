@@ -1,0 +1,75 @@
+body { 
+    font-family: Arial,
+     sans-serif; margin: 20px;
+}
+
+.container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #f0f0f0; 
+    padding: 20px; 
+    border-radius: 10px; 
+}
+
+input[type="text"] { 
+    width: 200px; 
+    height: 30px; 
+    padding: 5px; 
+    margin-right: 10px; 
+}
+
+button { 
+    padding: 10px 20px; 
+    cursor: pointer; 
+}
+
+.result { 
+    margin-top: 20px; 
+}
+
+.card {
+    float: left;
+    width: 39px;
+    height: 25px;
+    text-indent: -9999px;
+    margin-right: 4px;
+  }
+
+.imgCard li {
+    display: block;
+    float: left;
+}
+
+li {
+    list-style-type: none;
+}
+
+.card.visa {
+    background-image: url("https://www.validcreditcardnumber.com/static/img/card-visa.gif");
+}
+
+.card.master {
+    background-image: url("https://www.validcreditcardnumber.com/static/img/card-mastercard.gif");
+}
+
+.card.amex {
+    background-image: url("https://www.validcreditcardnumber.com/static/img/card-amex.gif");
+}
+
+.card.discover {
+    background-image: url("https://www.validcreditcardnumber.com/static/img/card-discover.gif");
+}
+
+.card.jcb {
+    background-image: url("https://www.validcreditcardnumber.com/static/img/card-jcb.gif");
+}
+
+.card.mir {
+    background-image: url("https://cdn1.ozone.ru/s3/payform-pcidss/0093e60eebdb2b084d19816ba67a1473b3ff9af3/img/ps-mir.3395b1c.png");
+}
+
+.card.cdisabled {
+    background-position: 0 -25px;
+    opacity: .3;
+}
