@@ -1,49 +1,27 @@
-const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-module.exports = {
-  devServer: {
-    port: 9000,
-  },
-  mode: 'production',
-  devtool: 'source-map',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.html$/,
-        use: [
+const merge = require('webpack-merge');
+const common = require('./webpack.common');
+const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = merge(common, {
+    mode: 'production',
+    optimization: {
+        minimizer: [
+            new TerserPlugin({}),
+            new OptimizeCSSAssetsPlugin({
+                assetNameRegExp: /\.css$/i,
+            }),
+            new HtmlWebpackPlugin({
+                template: './src/index.html'
+            })
+        ],
+    },
+    module: {
+        rules: [
           {
-            loader: 'html-loader',
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
           },
         ],
       },
-      {
-        test: /\.css$/,
-        use: [ 
-          MiniCssExtractPlugin.loader, 'css-loader',
-        ],
-      },
-    ],
-  },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    }),
-  ],
-};
+});

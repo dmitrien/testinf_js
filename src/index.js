@@ -68,5 +68,5 @@ function validateCard() {
     resultDiv.innerHTML += `<p>Система: ${paymentSystem || 'Неизвестно'}</p>`;
 }
 
-const checkButton = document.getElementById('checkerButton');
+const checkButton = document.querySelector('.checkerButton');
 checkButton.addEventListener('click', validateCard);
